@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эх, прокачу! - Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-car"></i>
+                <span>Эх, прокачу!</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link active">Главная</a>
+                <a href="/login" class="nav-link" id="login-link">Войти</a>
+                <a href="/register" class="nav-link" id="register-link">Регистрация</a>
+                <a href="/bookings" class="nav-link" id="bookings-link" style="display: none;">Мои заявки</a>
+                <a href="/admin" class="nav-link" id="admin-link" style="display: none;">Админ панель</a>
+                <button class="nav-link logout-btn" id="logout-btn" style="display: none;">Выйти</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="title-line">Эх, прокачу!</span>
+                        <span class="title-subtitle">Сервис бронирования автомобилей</span>
+                    </h1>
+                    <p class="hero-description">
+                        Забронируйте автомобиль из нашего автопарка быстро и удобно. 
+                        Широкий выбор автомобилей для любых целей.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/register" class="btn btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Зарегистрироваться
+                        </a>
+                        <a href="/login" class="btn btn-secondary">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Войти в систему
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="car-animation">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">Почему выбирают нас?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Быстрое бронирование</h3>
+                        <p>Забронируйте автомобиль за несколько минут через удобный интерфейс</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Широкий выбор</h3>
+                        <p>Большой автопарк с автомобилями различных классов и марок</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Безопасность</h3>
+                        <p>Все автомобили проходят регулярное техническое обслуживание</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>Прозрачные цены</h3>
+                        <p>Четкие тарифы без скрытых доплат и комиссий</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works-section">
+            <div class="container">
+                <h2 class="section-title">Как это работает?</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Регистрация</h3>
+                        <p>Создайте аккаунт, указав свои данные и водительское удостоверение</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Выбор автомобиля</h3>
+                        <p>Выберите подходящий автомобиль из нашего автопарка</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Бронирование</h3>
+                        <p>Укажите желаемую дату и подайте заявку на бронирование</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Подтверждение</h3>
+                        <p>Получите подтверждение заявки и заберите автомобиль</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Эх, прокачу!</h3>
+                    <p>Сервис бронирования автомобилей</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@ekh-prokachu.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Эх, прокачу! Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

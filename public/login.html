@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Эх, прокачу!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-car"></i>
+                <span>Эх, прокачу!</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Главная</a>
+                <a href="/login" class="nav-link active" id="login-link">Войти</a>
+                <a href="/register" class="nav-link" id="register-link">Регистрация</a>
+                <a href="/bookings" class="nav-link" id="bookings-link" style="display: none;">Мои заявки</a>
+                <a href="/admin" class="nav-link" id="admin-link" style="display: none;">Админ панель</a>
+                <button class="nav-link logout-btn" id="logout-btn" style="display: none;">Выйти</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="form-container fade-in">
+            <h1 class="form-title">
+                <i class="fas fa-sign-in-alt"></i>
+                Вход в систему
+            </h1>
+            
+            <form id="login-form" class="slide-up">
+                <div class="form-group">
+                    <label for="email" class="form-label">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        class="form-input" 
+                        placeholder="Введите ваш email"
+                        required
+                    >
+                    <div class="error-message" id="email-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">
+                        <i class="fas fa-lock"></i>
+                        Пароль
+                    </label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        class="form-input" 
+                        placeholder="Введите ваш пароль"
+                        required
+                    >
+                    <div class="error-message" id="password-error"></div>
+                </div>
+
+                <button type="submit" class="form-btn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Войти
+                </button>
+            </form>
+
+            <div class="form-link">
+                <p>Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
+            </div>
+
+            <div class="admin-info">
+                <h3>Для администратора:</h3>
+                <p><strong>Логин:</strong> car</p>
+                <p><strong>Пароль:</strong> carforme</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Эх, прокачу!</h3>
+                    <p>Сервис бронирования автомобилей</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@ekh-prokachu.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Эх, прокачу! Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

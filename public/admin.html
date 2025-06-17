@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ панель - Эх, прокачу!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-car"></i>
+                <span>Эх, прокачу!</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Главная</a>
+                <a href="/login" class="nav-link" id="login-link">Войти</a>
+                <a href="/register" class="nav-link" id="register-link">Регистрация</a>
+                <a href="/bookings" class="nav-link" id="bookings-link" style="display: none;">Мои заявки</a>
+                <a href="/admin" class="nav-link active" id="admin-link" style="display: none;">Админ панель</a>
+                <button class="nav-link logout-btn" id="logout-btn" style="display: none;">Выйти</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="table-container fade-in">
+            <div class="table-header">
+                <h1 class="table-title">
+                    <i class="fas fa-cogs"></i>
+                    Панель администратора
+                </h1>
+                <div class="admin-controls">
+                    <button class="btn btn-secondary" onclick="refreshBookings()">
+                        <i class="fas fa-sync-alt"></i>
+                        Обновить
+                    </button>
+                    <div class="status-filter">
+                        <select id="status-filter" onchange="filterBookings()">
+                            <option value="">Все статусы</option>
+                            <option value="new">Новые</option>
+                            <option value="confirmed">Подтвержденные</option>
+                            <option value="rejected">Отклоненные</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="new-count">0</h3>
+                        <p>Новые заявки</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="confirmed-count">0</h3>
+                        <p>Подтвержденные</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="rejected-count">0</h3>
+                        <p>Отклоненные</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="total-count">0</h3>
+                        <p>Всего заявок</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="admin-bookings-container" class="slide-up">
+                <!-- Заявки будут загружены через JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Эх, прокачу!</h3>
+                    <p>Сервис бронирования автомобилей</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@ekh-prokachu.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Эх, прокачу! Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Дополнительные функции для админской панели
+        let allBookings = [];
+        
+        async function refreshBookings() {
+            await loadAdminBookings();
+        }
+        
+        function filterBookings() {
+            const filterValue = document.getElementById('status-filter').value;
+            const container = document.getElementById('admin-bookings-container');
+            
+            if (!filterValue) {
+                displayAdminBookings(allBookings, container);
+            } else {
+                const filteredBookings = allBookings.filter(booking => booking.status === filterValue);
+                displayAdminBookings(filteredBookings, container);
+            }
+        }
+        
+        function updateStats(bookings) {
+            const newCount = bookings.filter(b => b.status === 'new').length;
+            const confirmedCount = bookings.filter(b => b.status === 'confirmed').length;
+            const rejectedCount = bookings.filter(b => b.status === 'rejected').length;
+            const totalCount = bookings.length;
+            
+            document.getElementById('new-count').textContent = newCount;
+            document.getElementById('confirmed-count').textContent = confirmedCount;
+            document.getElementById('rejected-count').textContent = rejectedCount;
+            document.getElementById('total-count').textContent = totalCount;
+        }
+        
+        // Переопределяем функцию загрузки заявок для админа
+        async function loadAdminBookings() {
+            const container = document.getElementById('admin-bookings-container');
+            if (!container) return;
+
+            container.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+
+            try {
+                const response = await fetch('/api/admin/bookings');
+                allBookings = await response.json();
+
+                if (allBookings.length === 0) {
+                    container.innerHTML = '<p>Заявок пока нет</p>';
+                } else {
+                    displayAdminBookings(allBookings, container);
+                    updateStats(allBookings);
+                }
+            } catch (error) {
+                container.innerHTML = '<p class="error-message">Ошибка загрузки заявок</p>';
+            }
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заявки - Эх, прокачу!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-car"></i>
+                <span>Эх, прокачу!</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="/" class="nav-link">Главная</a>
+                <a href="/login" class="nav-link" id="login-link">Войти</a>
+                <a href="/register" class="nav-link" id="register-link">Регистрация</a>
+                <a href="/bookings" class="nav-link active" id="bookings-link" style="display: none;">Мои заявки</a>
+                <a href="/admin" class="nav-link" id="admin-link" style="display: none;">Админ панель</a>
+                <button class="nav-link logout-btn" id="logout-btn" style="display: none;">Выйти</button>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="table-container fade-in">
+            <div class="table-header">
+                <h1 class="table-title">
+                    <i class="fas fa-calendar-check"></i>
+                    Мои заявки
+                </h1>
+                <a href="/new-booking" class="btn btn-primary">
+                    <i class="fas fa-plus"></i>
+                    Новая заявка
+                </a>
+            </div>
+            
+            <div id="bookings-container" class="slide-up">
+                <!-- Заявки будут загружены через JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Эх, прокачу!</h3>
+                    <p>Сервис бронирования автомобилей</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@ekh-prokachu.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00 - 20:00</p>
+                    <p>Сб-Вс: 10:00 - 18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Эх, прокачу! Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
